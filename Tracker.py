@@ -38,10 +38,11 @@ while True:
         break
     
     hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)#Convert BGR to HSV color    
+    
     lower_pink = np.array([120,90,200])
     upper_pink = np.array([170,130,240])
     mask = cv.inRange(hsv, lower_pink, upper_pink)
-
+  
     
     
    
@@ -72,8 +73,8 @@ while True:
             
             print("Center Coordinates = ",center_x,center_y) #prints current coordinates
             pag.moveTo(1920-(center_x*newX)+5,(center_y*newY)+30)
-            print("Supposted to be coordinates = ",(center_x*newX)+5,(center_y*newY)+30)
-            print("Moust Coordinates = " ,pag.position())
+            print("Predicted to be coordinates = ",(center_x*newX)+5,(center_y*newY)+30)
+            print("Mouse Coordinates = " ,pag.position())
             
             print("_________________")
             
@@ -84,11 +85,11 @@ while True:
 
     tes = cv.flip(res,1)#mirrors the window for visual accuracy
     frame150 = rescale_frame(tes, percent=150) #rescales by 150%
-    #cv.imshow('Tracking', frame150)#displays rescaled image
+    cv.imshow('Tracking', frame150)#displays rescaled image
 
     
     frame = cv.flip(frame, 1)
-    cv.imshow('Color Tracking', frame) #displays color version of the tracker
+    #cv.imshow('Color Tracking', frame) #displays color version of the tracker
    
 
 
